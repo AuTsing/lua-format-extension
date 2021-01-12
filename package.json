@@ -2,7 +2,7 @@
     "name": "lua-format-extension",
     "displayName": "lua-format-extension",
     "description": "a simple lua formatter for vscode",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.52.0"
     },
