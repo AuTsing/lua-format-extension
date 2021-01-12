@@ -1,45 +1,88 @@
 {
-	"name": "lua-format-extension",
-	"displayName": "lua-format-extension",
-	"description": "lua formatter",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.52.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:lua-format-extension.helloWorld"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "lua-format-extension.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.52.0",
-		"@types/glob": "^7.1.3",
-		"@types/mocha": "^8.0.4",
-		"@types/node": "^12.11.7",
-		"eslint": "^7.15.0",
-		"@typescript-eslint/eslint-plugin": "^4.9.0",
-		"@typescript-eslint/parser": "^4.9.0",
-		"glob": "^7.1.6",
-		"mocha": "^8.1.3",
-		"typescript": "^4.1.2",
-		"vscode-test": "^1.4.1"
-	}
+    "name": "lua-format-extension",
+    "displayName": "lua-format-extension",
+    "description": "a simple lua formatter for vscode",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "publisher": "autsing",
+    "keywords": [
+        "lua fomatter",
+        "lua中文格式化"
+    ],
+    "categories": [
+        "Formatters"
+    ],
+    "activationEvents": [
+        "onLanguage:lua"
+    ],
+    "license": "GPL-3.0",
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "luaFormatExtension",
+            "properties": {
+                "lua-format-extension.lineWidth": {
+                    "type": "integer",
+                    "default": 120,
+                    "description": "Maximum length of a line before it will be wrapped",
+                    "scope": "resource"
+                },
+                "lua-format-extension.indentCount": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Number of characters to indent",
+                    "scope": "resource"
+                },
+                "lua-format-extension.linebreakMultipleAssignments": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If true, will wrap on multiple assignments",
+                    "scope": "resource"
+                },
+                "lua-format-extension.quotemark": {
+                    "type": "string",
+                    "enum": [
+                        "single",
+                        "double"
+                    ],
+                    "default": "single",
+                    "description": "use single or double quotes",
+                    "scope": "resource"
+                },
+                "lua-format-extension.useTabs": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Indent lines with tabs",
+                    "scope": "resource"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^12.11.7",
+        "@types/vscode": "^1.52.0",
+        "@typescript-eslint/eslint-plugin": "^4.9.0",
+        "@typescript-eslint/parser": "^4.9.0",
+        "eslint": "^7.15.0",
+        "glob": "^7.1.6",
+        "mocha": "^8.1.3",
+        "typescript": "^4.1.2",
+        "vscode-test": "^1.4.1"
+    },
+    "dependencies": {
+        "lua-fmt-ext": "^3.0.5"
+    }
 }
