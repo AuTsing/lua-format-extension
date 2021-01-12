@@ -17,6 +17,7 @@
     "activationEvents": [
         "onLanguage:lua"
     ],
+    "repository": "https://github.com/AuTsing/lua-format-extension",
     "license": "GPL-3.0",
     "main": "./out/extension.js",
     "contributes": {
